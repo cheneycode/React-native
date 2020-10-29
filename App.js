@@ -7,7 +7,8 @@
  */
 
 import React from 'react';
-import Login from './src/pages/index/index';
+// import Index from './src/pages/index/index';
+import Login from './src/pages/login/index';
 
 
 const App: () => React$Node = () => {

@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,//相当于android布局的weight 充满容器
         flexDirection: 'column',
-        backgroundColor: '#dddddd',
+        backgroundColor: '#ffffff',
         //设置次轴的对齐方式
         alignItems: 'center',
         padding: 20
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 24,
-        color: 'red'
+        color: '#ECEEF0'
     },
     textInput: {
         marginTop: 15,
@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         backgroundColor: 'white',
         textAlign: 'left',
-        borderBottomColor: '#cccccc'
+        borderBottomWidth: 1,
+        borderBottomColor: '#ECEEF0'
     },
     btnStyle: {
         height: 40,
@@ -57,6 +58,14 @@ const styles = StyleSheet.create({
         color: 'white',
         //设置文本垂直方向居中
         textAlignVertical: 'center',
+    },
+    canNot: {
+        width: width - 32,
+        marginTop: 15,
+        flexDirection: 'row',
+        alignItems: 'center',
+        //设置主轴为两端对齐
+        justifyContent: 'space-between',
     },
 })
 
@@ -93,21 +102,20 @@ class Login extends React.Component {
         return (
             <>
                 <View style={styles.container}>
-                    {/*为头像设置一个样式，和图片资源*/}
-                    <Image style={styles.circleImage} source={require('../../image/timg.jpeg')} />
+                    {/* <Image style={styles.circleImage} source={require('../../image/timg.jpeg')} /> */}
                     <Text style={styles.text}>
-                        用户登录
+                        励齿商城
                     </Text>
-                    {/*用户名*/}
                     <TextInput
+                        underlineColorAndroid='transparent'
                         value={this.state.name}
                         onChangeText={this._inputChange.bind(this)}
                         style={styles.textInput}
-                        placeholder={'请输入用户名'}
+                        placeholder={'请输入手机号'}
                         //输入框下划线
                         underlineColorAndroid={'transparent'} />
-                    {/*密码*/}
                     <TextInput
+                        underlineColorAndroid='transparent'
                         value={this.state.pwd}
                         style={styles.textInput}
                         onChangeText={this._pwdChange.bind(this)}
@@ -117,6 +125,10 @@ class Login extends React.Component {
                     <TouchableOpacity style={styles.btnStyle} onPress={this.onPressButton.bind(this)} >
                         <Text style={styles.loginText}>登录</Text>
                     </TouchableOpacity>
+                    <View style={styles.canNot}>
+                        <Text style={{ color: '#4398ff' }}>无法登录</Text>
+                        <Text style={{ color: '#4398ff' }}>新用户</Text>
+                    </View>
                 </View>
             </>
         )
